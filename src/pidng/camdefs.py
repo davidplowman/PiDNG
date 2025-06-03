@@ -34,9 +34,9 @@ class BaseCameraModel():
         return str(self.model)
 
 class Picamera2Camera(BaseCameraModel):
-    def __init__(self, fmt : dict, metadata: dict) -> None:
+    def __init__(self, fmt : dict, metadata: dict, model : str = "PiDNG / PiCamera2") -> None:
         super().__init__() 
-        self.model = "Picamera2Model"
+        self.model = model
         self.fmt = fmt
         self.metadata = metadata
         self.__settings__()
@@ -81,7 +81,7 @@ class Picamera2Camera(BaseCameraModel):
 
         baseline_exp = 1
 
-        model = "PiDNG / PiCamera2"
+        model = self.model
         make = "RaspberryPi"
 
         profile_name = "PiDNG / PiCamera2 Profile"
